@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "nombre": "Vocho atardecer",
+      "tipo": "remeras",
+      "descripcion": "Escarabajo retro sobre atardecer en la costa, estilo parche bordado.",
+      "foto": "/assets/uploads/remera-1.jpg"
+    },
+    {
+      "nombre": "Flor bordada",
+      "tipo": "remeras",
+      "descripcion": "Flor en efecto bordado con hojas verdes, ideal para remera blanca.",
+      "foto": "/assets/uploads/remera-2.jpg"
+    },
+    {
+      "nombre": "Corazón argentino",
+      "tipo": "remeras",
+      "descripcion": "Bandera argentina enmarcada en corazón floral celeste y blanco.",
+      "foto": "/assets/uploads/remera-3.jpg"
+    },
+    {
+      "nombre": "Bandera y flores",
+      "tipo": "buzos",
+      "descripcion": "Bandera argentina con marco floral, sobre buzo canguro rosa.",
+      "foto": "/assets/uploads/buzo-1.jpg"
+    },
+    {
+      "nombre": "Argentina tres estrellas",
+      "tipo": "buzos",
+      "descripcion": "Diseño minimalista con tres estrellas y texto Argentina.",
+      "foto": "/assets/uploads/buzo-2.jpg"
+    },
+    {
+      "nombre": "Oso curioso",
+      "tipo": "buzos",
+      "descripcion": "Ilustración de línea de un oso con anteojos y la frase What??",
+      "foto": "/assets/uploads/buzo-3.jpg"
+    }
+  ]
+}

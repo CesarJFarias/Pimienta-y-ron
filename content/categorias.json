@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "id": "remeras", "etiqueta": "Remeras", "activa": true },
+    { "id": "buzos", "etiqueta": "Buzos", "activa": true },
+    { "id": "gorras", "etiqueta": "Gorras", "activa": false }
+  ]
+}

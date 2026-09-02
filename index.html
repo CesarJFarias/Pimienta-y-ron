@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de sublimado — Pimienta &amp; Ron</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/*
+  =========================================================
+  CÓMO EDITAR ESTE CATÁLOGO
+  =========================================================
+  Los productos y categorías YA NO se editan en este archivo.
+  Se administran desde el panel en /admin, que guarda los
+  cambios en content/productos.json y content/categorias.json.
+  Esta página simplemente lee esos dos archivos cada vez que
+  alguien la visita.
+
+  El número de WhatsApp y el link de Instagram sí se configuran
+  acá abajo, en el bloque <script> al final del archivo.
+  =========================================================
+*/
+
+:root{
+  --bg: #F3E7D6;
+  --surface: #FFFFFF;
+  --ink: #2E3D28;
+  --ink-soft: #6B6153;
+  --line: #E2D3B8;
+  --rust: #B14A2A;
+  --rust-ink: #6B2C18;
+  --gold: #C9A227;
+  --gold-ink: #6E561A;
+  --radius: 14px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.wrap{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ---------- Header ---------- */
+
+header{
+  padding: 56px 24px 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner{
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brand-block{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand-logo{
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.brand-title{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  letter-spacing: 0.5px;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.brand-sub{
+  color: var(--ink-soft);
+  font-size: 16px;
+  margin: 10px 0 0;
+  max-width: 480px;
+}
+
+.ink-strip{
+  display: flex;
+  gap: 6px;
+}
+.ink-dot{
+  width: 14px; height: 14px; border-radius: 50%;
+}
+
+/* ---------- Filtros ---------- */
+
+.filters{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 36px 0 32px;
+}
+
+.filter-btn{
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filter-btn:hover{ border-color: var(--ink-soft); }
+
+.filter-btn.active{
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+.filter-btn.disabled{
+  color: var(--ink-soft);
+  cursor: default;
+  opacity: 0.55;
+}
+.filter-btn.disabled:hover{ border-color: var(--line); }
+
+/* ---------- Grid ---------- */
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb{
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--line);
+}
+
+.thumb-mark{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--ink-soft);
+  letter-spacing: 1px;
+}
+
+.card-body{
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.card-name{
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.card-desc{
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  margin: 0;
+  flex: 1;
+}
+
+.badge{
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #F1E4BE;
+  color: var(--gold-ink);
+}
+
+.contact-btn{
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--rust);
+  color: #FBF3EA;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.contact-btn:hover{ opacity: 0.88; }
+
+.empty-state, .load-state{
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 60px 20px;
+  font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+  text-align: center;
+  padding: 40px 24px 60px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+footer a{ color: var(--ink); }
+
+@media (max-width: 480px){
+  .brand-title{ font-size: 42px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand-block">
+      <img src="/assets/logo.jpg" alt="Logo Pimienta &amp; Ron" class="brand-logo">
+      <div>
+        <h1 class="brand-title">Catálogo de sublimado</h1>
+        <p class="brand-sub">Diseños hechos a medida, sublimados sobre distintas prendas.</p>
+      </div>
+    </div>
+    <div class="ink-strip" aria-hidden="true">
+      <span class="ink-dot" style="background: var(--rust);"></span>
+      <span class="ink-dot" style="background: var(--gold);"></span>
+      <span class="ink-dot" style="background: var(--ink);"></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty-state" id="empty" style="display:none;">No hay diseños en esta categoría todavía.</div>
+  <div class="load-state" id="loading">Cargando catálogo…</div>
+</div>
+
+<footer>
+  Catálogo de ejemplo · reemplazá fotos y textos por los diseños reales · escribinos por <a id="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+</footer>
+
+<script>
+  // ---- CONFIGURACIÓN (editar acá) ----
+  const WHATSAPP_NUMBER = "5492613400336"; // código de país + área + número, sin + ni espacios
+  const INSTAGRAM_URL = "https://instagram.com/tu_usuario";
+
+  // ---- LÓGICA ----
+  document.getElementById("ig-link").href = INSTAGRAM_URL;
+
+  const filtersEl = document.getElementById("filters");
+  const gridEl = document.getElementById("grid");
+  const emptyEl = document.getElementById("empty");
+  const loadingEl = document.getElementById("loading");
+
+  let CATEGORIES = [];
+  let DESIGNS = [];
+  let activeFilter = "todas";
+
+  async function cargarDatos(){
+    try{
+      const [productosRes, categoriasRes] = await Promise.all([
+        fetch("content/productos.json?_=" + Date.now()),
+        fetch("content/categorias.json?_=" + Date.now())
+      ]);
+      const productosData = await productosRes.json();
+      const categoriasData = await categoriasRes.json();
+
+      DESIGNS = productosData.items || [];
+      CATEGORIES = [{ id: "todas", etiqueta: "Todas", activa: true }, ...(categoriasData.items || [])];
+
+      loadingEl.style.display = "none";
+      renderFilters();
+      renderGrid();
+    } catch (err){
+      loadingEl.textContent = "No se pudo cargar el catálogo. Probá recargar la página.";
+    }
+  }
+
+  function renderFilters(){
+    filtersEl.innerHTML = "";
+    CATEGORIES.forEach(cat => {
+      const btn = document.createElement("button");
+      const disabled = cat.activa === false;
+      btn.className = "filter-btn" + (cat.id === activeFilter ? " active" : "") + (disabled ? " disabled" : "");
+      btn.textContent = disabled ? cat.etiqueta + " · próximamente" : cat.etiqueta;
+      btn.type = "button";
+      if(!disabled){
+        btn.addEventListener("click", () => {
+          activeFilter = cat.id;
+          renderFilters();
+          renderGrid();
+        });
+      }
+      filtersEl.appendChild(btn);
+    });
+  }
+
+  function renderGrid(){
+    const items = activeFilter === "todas" ? DESIGNS : DESIGNS.filter(d => d.tipo === activeFilter);
+    gridEl.innerHTML = "";
+    emptyEl.style.display = items.length ? "none" : "block";
+
+    items.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const thumb = document.createElement("div");
+      thumb.className = "thumb";
+      if(item.foto){
+        thumb.style.backgroundImage = "url(" + item.foto + ")";
+      } else {
+        const mark = document.createElement("span");
+        mark.className = "thumb-mark";
+        mark.textContent = "FOTO PENDIENTE";
+        thumb.appendChild(mark);
+      }
+
+      const body = document.createElement("div");
+      body.className = "card-body";
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = item.tipo.charAt(0).toUpperCase() + item.tipo.slice(1);
+
+      const name = document.createElement("p");
+      name.className = "card-name";
+      name.textContent = item.nombre;
+
+      const desc = document.createElement("p");
+      desc.className = "card-desc";
+      desc.textContent = item.descripcion;
+
+      const contact = document.createElement("a");
+      contact.className = "contact-btn";
+      contact.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola! Me interesa el diseño \"" + item.nombre + "\"");
+      contact.target = "_blank";
+      contact.rel = "noopener";
+      contact.textContent = "Consultar";
+
+      body.append(badge, name, desc, contact);
+      card.append(thumb, body);
+      gridEl.appendChild(card);
+    });
+  }
+
+  cargarDatos();
+</script>
+
+</body>
+</html>

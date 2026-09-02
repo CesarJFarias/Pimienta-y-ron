@@ -1,0 +1,51 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "es"
+
+collections:
+  - name: "catalogo"
+    label: "Catálogo"
+    files:
+      - file: "content/productos.json"
+        label: "Productos"
+        name: "productos"
+        fields:
+          - label: "Productos"
+            name: "items"
+            widget: "list"
+            label_singular: "Producto"
+            summary: "{{nombre}} — {{tipo}}"
+            fields:
+              - { label: "Nombre del diseño", name: "nombre", widget: "string" }
+              - label: "Tipo de prenda"
+                name: "tipo"
+                widget: "select"
+                options: ["remeras", "buzos", "gorras"]
+              - { label: "Descripción", name: "descripcion", widget: "text" }
+              - { label: "Foto", name: "foto", widget: "image" }
+
+      - file: "content/categorias.json"
+        label: "Categorías"
+        name: "categorias"
+        fields:
+          - label: "Categorías"
+            name: "items"
+            widget: "list"
+            label_singular: "Categoría"
+            summary: "{{etiqueta}}"
+            fields:
+              - label: "Identificador"
+                name: "id"
+                widget: "string"
+                hint: "Sin espacios ni mayúsculas, ej: gorras"
+              - { label: "Nombre visible", name: "etiqueta", widget: "string" }
+              - label: "Activa"
+                name: "activa"
+                widget: "boolean"
+                hint: "Si está apagada, se muestra como 'próximamente' en la web"
+                default: true
