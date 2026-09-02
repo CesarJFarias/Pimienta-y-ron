@@ -1,6 +1,12 @@
 backend:
   name: git-gateway
+  repo: CesarJFarias/Pimienta-y-ron
   branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/db9361f5-0613-47ce-87c3-57c220f2e90f/pkce
+  auth_token_endpoint: /sites/db9361f5-0613-47ce-87c3-57c220f2e90f/token
+  gateway_url: https://gateway.decapbridge.com
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
