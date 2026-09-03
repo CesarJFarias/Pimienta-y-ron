@@ -6,7 +6,7 @@
 <title>Catálogo de sublimado — Pimienta &amp; Ron</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
 /*
@@ -43,7 +43,7 @@ body{
   margin:0;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Jost', system-ui, sans-serif;
   line-height: 1.5;
 }
 
@@ -86,16 +86,19 @@ header{
 }
 
 .brand-title{
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 56px;
-  letter-spacing: 0.5px;
-  line-height: 0.95;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 60px;
+  letter-spacing: 0.01em;
+  line-height: 1;
   margin: 0;
 }
 
 .brand-sub{
-  color: var(--ink-soft);
+  color: var(--rust);
   font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   margin: 10px 0 0;
   max-width: 480px;
 }
@@ -172,7 +175,7 @@ header{
 }
 
 .thumb-mark{
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
   color: var(--ink-soft);
   letter-spacing: 1px;
@@ -243,7 +246,7 @@ footer{
 footer a{ color: var(--ink); }
 
 @media (max-width: 480px){
-  .brand-title{ font-size: 42px; }
+  .brand-title{ font-size: 44px; }
 }
 </style>
 </head>
@@ -252,10 +255,9 @@ footer a{ color: var(--ink); }
 <header>
   <div class="header-inner">
     <div class="brand-block">
-      <img src="/assets/logo.jpg" alt="Logo Pimienta &amp; Ron" class="brand-logo">
       <div>
-        <h1 class="brand-title">Catálogo de sublimado</h1>
-        <p class="brand-sub">Diseños hechos a medida, sublimados sobre distintas prendas.</p>
+        <h1 class="brand-title">Pimienta &amp; Ron</h1>
+        <p class="brand-sub">Diseños que cuentan historias.</p>
       </div>
     </div>
     <div class="ink-strip" aria-hidden="true">
@@ -280,7 +282,7 @@ footer a{ color: var(--ink); }
 <script>
   // ---- CONFIGURACIÓN (editar acá) ----
   const WHATSAPP_NUMBER = "5492613400336"; // código de país + área + número, sin + ni espacios
-  const INSTAGRAM_URL = "https://instagram.com/tu_usuario";
+  const INSTAGRAM_URL = "https://www.instagram.com/pimienta_yron";
 
   // ---- LÓGICA ----
   document.getElementById("ig-link").href = INSTAGRAM_URL;
