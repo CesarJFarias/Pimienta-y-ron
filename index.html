@@ -48,7 +48,7 @@ body{
 }
 
 .wrap{
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px 80px;
 }
@@ -151,8 +151,8 @@ header{
 
 .grid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
 }
 
 .card{
@@ -162,6 +162,17 @@ header{
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(46,61,40,.10);
+  border-color: var(--ink-soft);
+}
+.card:focus-visible{
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
 }
 
 .thumb{
@@ -172,7 +183,9 @@ header{
   background-size: cover;
   background-position: center;
   background-color: var(--line);
+  transition: transform .4s ease;
 }
+.card:hover .thumb{ transform: scale(1.03); }
 
 .thumb-mark{
   font-family: 'Cormorant Garamond', serif;
@@ -182,51 +195,138 @@ header{
 }
 
 .card-body{
-  padding: 16px 16px 18px;
+  padding: 18px 18px 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   flex: 1;
 }
 
 .card-name{
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
 }
 
 .card-desc{
   color: var(--ink-soft);
-  font-size: 13.5px;
+  font-size: 14px;
   margin: 0;
   flex: 1;
 }
 
 .badge{
   align-self: flex-start;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 999px;
   background: #F1E4BE;
   color: var(--gold-ink);
 }
 
+/* ---------- Modal ---------- */
+
+.modal{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(46,61,40,.55);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+.modal.open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card{
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: 18px;
+  transform: translateY(16px) scale(.98);
+  transition: transform .25s ease;
+}
+.modal.open .modal-card{ transform: translateY(0) scale(1); }
+
+.modal-close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(243,231,214,.92);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease, transform .2s ease;
+}
+.modal-close:hover{ background: var(--bg); transform: rotate(90deg); }
+
+.modal-thumb{
+  aspect-ratio: 4/5;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--line);
+}
+
+.modal-body{
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-name{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.modal-desc{
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0;
+}
+
 .contact-btn{
-  margin-top: 4px;
+  margin-top: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   background: var(--rust);
   color: #FBF3EA;
   text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-size: 13.5px;
+  padding: 13px 18px;
+  border-radius: 11px;
+  font-size: 14.5px;
   font-weight: 600;
 }
 .contact-btn:hover{ opacity: 0.88; }
+
+body.no-scroll{ overflow: hidden; }
 
 .empty-state, .load-state{
   text-align: center;
@@ -247,6 +347,8 @@ footer a{ color: var(--ink); }
 
 @media (max-width: 480px){
   .brand-title{ font-size: 44px; }
+  .grid{ gap: 18px; }
+  .modal-card{ max-height: 90vh; }
 }
 </style>
 </head>
@@ -275,8 +377,21 @@ footer a{ color: var(--ink); }
   <div class="load-state" id="loading">Cargando catálogo…</div>
 </div>
 
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" type="button" aria-label="Cerrar">&times;</button>
+    <div class="modal-thumb" id="modal-thumb"></div>
+    <div class="modal-body">
+      <span class="badge" id="modal-badge"></span>
+      <h2 class="modal-name" id="modal-name"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+      <a class="contact-btn" id="modal-wa" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </div>
+</div>
+
 <footer>
-  Catálogo de ejemplo · reemplazá fotos y textos por los diseños reales · escribinos por <a id="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+  Catálogo de sublimado · escribinos por <a id="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
 </footer>
 
 <script>
@@ -291,6 +406,14 @@ footer a{ color: var(--ink); }
   const gridEl = document.getElementById("grid");
   const emptyEl = document.getElementById("empty");
   const loadingEl = document.getElementById("loading");
+
+  const modalEl = document.getElementById("modal");
+  const modalThumb = document.getElementById("modal-thumb");
+  const modalBadge = document.getElementById("modal-badge");
+  const modalName = document.getElementById("modal-name");
+  const modalDesc = document.getElementById("modal-desc");
+  const modalWa = document.getElementById("modal-wa");
+  const modalClose = modalEl.querySelector(".modal-close");
 
   let CATEGORIES = [];
   let DESIGNS = [];
@@ -343,6 +466,16 @@ footer a{ color: var(--ink); }
     items.forEach(item => {
       const card = document.createElement("div");
       card.className = "card";
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", "Ver detalle de " + item.nombre);
+      card.addEventListener("click", () => abrirModal(item));
+      card.addEventListener("keydown", e => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          abrirModal(item);
+        }
+      });
 
       const thumb = document.createElement("div");
       thumb.className = "thumb";
@@ -370,18 +503,42 @@ footer a{ color: var(--ink); }
       desc.className = "card-desc";
       desc.textContent = item.descripcion;
 
-      const contact = document.createElement("a");
-      contact.className = "contact-btn";
-      contact.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola! Me interesa el diseño \"" + item.nombre + "\"");
-      contact.target = "_blank";
-      contact.rel = "noopener";
-      contact.textContent = "Consultar";
-
-      body.append(badge, name, desc, contact);
+      body.append(badge, name, desc);
       card.append(thumb, body);
       gridEl.appendChild(card);
     });
   }
+
+  function abrirModal(item){
+    modalBadge.textContent = item.tipo.charAt(0).toUpperCase() + item.tipo.slice(1);
+    modalName.textContent = item.nombre;
+    modalDesc.textContent = item.descripcion;
+
+    modalThumb.style.backgroundImage = item.foto
+      ? "url(" + item.foto + ")"
+      : "none";
+
+    modalWa.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
+      encodeURIComponent("Hola! Me interesa el diseño \"" + item.nombre + "\"");
+
+    modalEl.classList.add("open");
+    modalEl.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+  }
+
+  function cerrarModal(){
+    modalEl.classList.remove("open");
+    modalEl.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scroll");
+  }
+
+  modalClose.addEventListener("click", cerrarModal);
+  modalEl.addEventListener("click", e => {
+    if(e.target === modalEl) cerrarModal();
+  });
+  window.addEventListener("keydown", e => {
+    if(e.key === "Escape" && modalEl.classList.contains("open")) cerrarModal();
+  });
 
   cargarDatos();
 </script>
