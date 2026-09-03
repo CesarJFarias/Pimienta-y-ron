@@ -319,6 +319,17 @@ header{
 }
 .contact-btn:hover{ opacity: 0.88; }
 
+.modal-contacts{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+.modal-contacts .contact-btn{
+  width: 100%;
+  margin-top: 0;
+}
+
 body.no-scroll{ overflow: hidden; }
 
 .empty-state, .load-state{
@@ -389,7 +400,7 @@ footer a{ color: var(--ink); }
       <span class="badge" id="modal-badge"></span>
       <h2 class="modal-name" id="modal-name"></h2>
       <p class="modal-desc" id="modal-desc"></p>
-      <a class="contact-btn" id="modal-wa" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      <div class="modal-contacts" id="modal-contacts"></div>
     </div>
   </div>
 </div>
@@ -400,7 +411,12 @@ footer a{ color: var(--ink); }
 
 <script>
   // ---- CONFIGURACIÓN (editar acá) ----
-  const WHATSAPP_NUMBER = "5492613400336"; // código de país + área + número, sin + ni espacios
+  // Cada contacto es un vendedor. Solo se muestra el "nombre" en la web,
+  // el número queda oculto. Formato del número: código de país + área + número, sin + ni espacios.
+  const CONTACTOS = [
+    { nombre: "Erica", numero: "5492613400336" },
+    { nombre: "Chica 2", numero: "5492613633528" }
+  ];
   const INSTAGRAM_URL = "https://www.instagram.com/pimienta_yron";
 
   // ---- LÓGICA ----
@@ -416,7 +432,7 @@ footer a{ color: var(--ink); }
   const modalBadge = document.getElementById("modal-badge");
   const modalName = document.getElementById("modal-name");
   const modalDesc = document.getElementById("modal-desc");
-  const modalWa = document.getElementById("modal-wa");
+  const modalContacts = document.getElementById("modal-contacts");
   const modalClose = modalEl.querySelector(".modal-close");
 
   let CATEGORIES = [];
@@ -522,8 +538,17 @@ footer a{ color: var(--ink); }
       ? "url(" + item.foto + ")"
       : "none";
 
-    modalWa.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
-      encodeURIComponent("Hola! Me interesa el diseño \"" + item.nombre + "\"");
+    const msg = encodeURIComponent("Hola! Me interesa el diseño \"" + item.nombre + "\"");
+    modalContacts.innerHTML = "";
+    CONTACTOS.forEach(c => {
+      const btn = document.createElement("a");
+      btn.className = "contact-btn";
+      btn.href = "https://wa.me/" + c.numero + "?text=" + msg;
+      btn.target = "_blank";
+      btn.rel = "noopener";
+      btn.textContent = "Consultar con " + c.nombre;
+      modalContacts.appendChild(btn);
+    });
 
     modalEl.classList.add("open");
     modalEl.setAttribute("aria-hidden", "false");
