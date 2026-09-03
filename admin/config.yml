@@ -31,7 +31,7 @@ collections:
               - label: "Tipo de prenda"
                 name: "tipo"
                 widget: "select"
-                options: ["remeras", "buzos", "gorras"]
+                options: ["remeras", "buzos"]
               - { label: "Descripción", name: "descripcion", widget: "text" }
               - { label: "Foto", name: "foto", widget: "image" }
 
