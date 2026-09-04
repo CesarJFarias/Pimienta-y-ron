@@ -1,0 +1,359 @@
+/*
+  =========================================================
+  HOJA DE ESTILOS DEL CATÁLOGO
+  =========================================================
+  Los productos y categorías NO se editan acá. Se administran
+  desde el panel en /admin, que guarda los cambios en
+  content/productos.json y content/categorias.json.
+  Esta página lee esos dos archivos cada vez que alguien la visita.
+
+  El número de WhatsApp y el link de Instagram se configuran
+  en js/config.js.
+  =========================================================
+*/
+
+:root{
+  --bg: #F3E7D6;
+  --surface: #FFFFFF;
+  --ink: #2E3D28;
+  --ink-soft: #6B6153;
+  --line: #E2D3B8;
+  --rust: #B14A2A;
+  --rust-ink: #6B2C18;
+  --gold: #C9A227;
+  --gold-ink: #6E561A;
+  --radius: 14px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Jost', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.wrap{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ---------- Header ---------- */
+
+header{
+  padding: 56px 24px 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner{
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brand-block{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand-logo{
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.brand-title{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 60px;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  margin: 0;
+}
+
+.brand-sub{
+  color: var(--rust);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 10px 0 0;
+  max-width: 480px;
+}
+
+/* ---------- Filtros ---------- */
+
+.filters{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 36px 0 32px;
+}
+
+.filter-btn{
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filter-btn:hover{ border-color: var(--ink-soft); }
+
+.filter-btn.active{
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+.filter-btn.disabled{
+  color: var(--ink-soft);
+  cursor: default;
+  opacity: 0.55;
+}
+.filter-btn.disabled:hover{ border-color: var(--line); }
+
+/* ---------- Grid ---------- */
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(46,61,40,.10);
+  border-color: var(--ink-soft);
+}
+.card:focus-visible{
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+.thumb{
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--line);
+  transition: transform .4s ease;
+}
+.card:hover .thumb{ transform: scale(1.03); }
+
+.thumb-mark{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--ink-soft);
+  letter-spacing: 1px;
+}
+
+.card-body{
+  padding: 18px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.card-name{
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+}
+
+.card-desc{
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0;
+  flex: 1;
+}
+
+.badge{
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #F1E4BE;
+  color: var(--gold-ink);
+}
+
+/* ---------- Modal ---------- */
+
+.modal{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(46,61,40,.55);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+.modal.open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card{
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: 18px;
+  transform: translateY(16px) scale(.98);
+  transition: transform .25s ease;
+}
+.modal.open .modal-card{ transform: translateY(0) scale(1); }
+
+.modal-close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(243,231,214,.92);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease, transform .2s ease;
+}
+.modal-close:hover{ background: var(--bg); transform: rotate(90deg); }
+
+.modal-thumb{
+  aspect-ratio: 4/5;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--line);
+}
+
+.modal-body{
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-name{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.modal-desc{
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0;
+}
+
+.contact-btn{
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--rust);
+  color: #FBF3EA;
+  text-decoration: none;
+  padding: 13px 18px;
+  border-radius: 11px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.contact-btn:hover{ opacity: 0.88; }
+
+.modal-contacts{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+.modal-contacts .contact-btn{
+  width: 100%;
+  margin-top: 0;
+}
+
+body.no-scroll{ overflow: hidden; }
+
+.empty-state, .load-state{
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 60px 20px;
+  font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+  text-align: center;
+  padding: 40px 24px 60px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+footer a{ color: var(--ink); }
+
+@media (max-width: 600px){
+  .brand-title{ font-size: 40px; }
+  .grid{ gap: 16px; }
+  .card-body{ padding: 14px 14px 18px; }
+  .card-name{ font-size: 16px; }
+  .card-desc{ font-size: 13px; }
+
+  .modal{
+    padding: 0;
+    align-items: flex-end;
+  }
+  .modal-card{
+    max-width: none;
+    max-height: 92dvh;
+    border-radius: 18px 18px 0 0;
+  }
+  .modal-thumb{ aspect-ratio: 1/1; }
+  .modal-body{ padding: 18px 20px 26px; }
+  .modal-name{ font-size: 26px; }
+  .modal-desc{ font-size: 14.5px; }
+}
