@@ -6,6 +6,7 @@
 
 // ---- Referencias al DOM ----
 const igLink = document.getElementById("ig-link");
+const waMayorista = document.getElementById("wa-mayorista");
 const filtersEl = document.getElementById("filters");
 const gridEl = document.getElementById("grid");
 const emptyEl = document.getElementById("empty");
@@ -18,6 +19,11 @@ let activeFilter = "todas";
 
 // ---- Instagram ----
 igLink.href = CONFIG.instagramUrl;
+
+// ---- WhatsApp (ventas al por mayor) ----
+const waContacto = CONFIG.contactos.find(c => c.nombre === "Erica");
+const waMsg = encodeURIComponent("Hola! Me interesa comprar al por mayor");
+if(waContacto) waMayorista.href = "https://wa.me/" + waContacto.numero + "?text=" + waMsg;
 
 // ---- Filtros ----
 function seleccionarFiltro(id){
@@ -55,6 +61,37 @@ function onDatosCargados(resultado){
   loadingEl.style.display = "none";
   renderFilters();
   renderGrid();
+  inyectarItemList();
+}
+
+// ---- SEO: ItemList dinámico (datos estructurados) ----
+function inyectarItemList(){
+  const prev = document.getElementById("ld-items");
+  if(prev) prev.remove();
+
+  if(DESIGNS.length === 0) return;
+
+  const base = CONFIG.siteUrl.replace(/\/$/, "");
+  const node = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: DESIGNS.map((d, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Product",
+        "name": d.nombre,
+        "description": d.descripcion,
+        "image": base + d.foto
+      }
+    }))
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = "ld-items";
+  script.textContent = JSON.stringify(node);
+  document.head.appendChild(script);
 }
 
 function onErrorCarga(){

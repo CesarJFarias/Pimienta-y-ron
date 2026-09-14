@@ -26,9 +26,13 @@ const Modal = {
     this.name.textContent = item.nombre;
     this.desc.textContent = item.descripcion;
 
-    this.thumb.style.backgroundImage = item.foto
-      ? "url(" + item.foto + ")"
-      : "none";
+    this.thumb.innerHTML = "";
+    if(item.foto){
+      const img = document.createElement("img");
+      img.src = item.foto;
+      img.alt = "Diseño " + item.nombre + " de Pimienta & Ron";
+      this.thumb.appendChild(img);
+    }
 
     const msg = encodeURIComponent("Hola! Me interesa el diseño \"" + item.nombre + "\"");
     this.contacts.innerHTML = "";

@@ -25,7 +25,12 @@ const Products = {
       const thumb = document.createElement("div");
       thumb.className = "thumb";
       if(item.foto){
-        thumb.style.backgroundImage = "url(" + item.foto + ")";
+        const img = document.createElement("img");
+        img.src = item.foto;
+        img.alt = "Diseño " + item.nombre + " de Pimienta & Ron";
+        img.loading = "lazy";
+        img.decoding = "async";
+        thumb.appendChild(img);
       } else {
         const mark = document.createElement("span");
         mark.className = "thumb-mark";

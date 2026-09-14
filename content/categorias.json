@@ -1,6 +1,7 @@
 {
   "items": [
     { "id": "remeras", "etiqueta": "Remeras", "activa": true },
-    { "id": "buzos", "etiqueta": "Buzos", "activa": true }
+    { "id": "buzos", "etiqueta": "Buzos", "activa": true },
+    { "id": "tazas", "etiqueta": "Tazas", "activa": false }
   ]
 }

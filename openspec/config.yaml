@@ -1,0 +1,36 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Static site - HTML + CSS + Vanilla JS + JSON + Decap CMS.
+  Architecture: Modular frontend (js/{app,config,data,filters,products,modal}.js). Data contract: content/productos.json y content/categorias.json. No framework, no build step, no backend.
+  Testing: No test runner detected (no package.json). Standard Mode.
+  Style: Spanish code comments, camelCase, no frameworks. AGENTS.md rules obligatorios.
+
+strict_tdd: false
+
+rules:
+  proposal:
+    - Constraint: UN solo push al final (credits Netlify limitados). Nada se pushea sin aprobación del usuario.
+    - Constraint: No tocar admin/ ni content/ salvo necesidad justificada (regla AGENTS.md).
+    - Include rollback plan (git revert del push único)
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - No cambiar el contrato de datos (nombre/tipo/descripcion/foto y id/etiqueta/activa)
+  design:
+    - Respetar separación de responsabilidades de AGENTS.md
+    - Sin frameworks, tipos, build ni dependencias nuevas
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    - Follow AGENTS.md reglas del proyecto (Rioplatense en recursos de texto)
+    - tdd: false
+    - test_command: ""
+  verify:
+    - test_command: ""
+    - build_command: ""
+    - coverage_threshold: 0
+    - Verificar JSON parse, rutas de imágenes, compatibilidad Decap, consistencia categorias/tipo
+  archive:
+    - Warn before merging destructive deltas (borrado de footer, imágenes/pantallas previas)

@@ -1,34 +1,100 @@
 {
   "items": [
     {
-      "nombre": "Corazón argentino",
+      "nombre": "Corazón Argentino",
       "tipo": "remeras",
-      "descripcion": "Bandera argentina enmarcada en corazón floral celeste y blanco.",
+      "descripcion": "Bandera argentina enmarcada en un corazón floral celeste y blanco. Un estampado fresco y lleno de identidad, ideal para llevar lo argentino con orgullo. Confeccionada en algodón de alta calidad.",
       "foto": "/assets/uploads/remera-3.jpg"
     },
     {
-      "nombre": "Bandera y flores",
-      "tipo": "buzos",
-      "descripcion": "Bandera argentina con marco floral, sobre buzo canguro rosa.",
-      "foto": "/assets/uploads/1000460488.png"
+      "nombre": "Flor de Corazón",
+      "tipo": "remeras",
+      "descripcion": "Remera negra con una flor en el centro con forma de corazón. Un diseño delicado y romántico que combina con cualquier estilo. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/whatsapp-image-2026-09-13-at-20.48.29.jpeg"
     },
     {
-      "nombre": "Argentina tres estrellas",
+      "nombre": "Rincón Argentino",
       "tipo": "buzos",
-      "descripcion": "Diseño minimalista con tres estrellas y texto Argentina.",
+      "descripcion": "Bandera argentina rodeada de un marco floral, estampada sobre buzo canguro rosa. Suave, abrigado y con mucho estilo. Confeccionado en algodón de alta calidad.",
+      "foto": "/assets/uploads/buzo-bandera-flores.jpg"
+    },
+    {
+      "nombre": "Tres Estrellas",
+      "tipo": "buzos",
+      "descripcion": "Diseño minimalista con tres estrellas celestes y la palabra Argentina. Simple, elegante y con toque bien nacional. Confeccionado en algodón de alta calidad.",
       "foto": "/assets/uploads/buzo-2.jpg"
     },
     {
-      "nombre": "Oso curioso",
+      "nombre": "Oso Curioso",
       "tipo": "buzos",
-      "descripcion": "Ilustración ,delineado ",
+      "descripcion": "Ilustración con delineado fino de un oso curioso, con tiernos detalles que roban sonrisas. Confeccionado en algodón de alta calidad.",
       "foto": "/assets/uploads/buzo-3.jpg"
     },
     {
-      "foto": "/assets/uploads/whatsapp-image-2026-09-13-at-20.48.29.jpeg",
-      "descripcion": "Remera negra de flor en el centro con forma de corazón",
+      "nombre": "Compañía Silenciosa",
       "tipo": "remeras",
-      "nombre": "Flor de Corazon"
+      "descripcion": "Ilustración tipo parche bordado de una niña junto a su gato, en tonos pastel. Ternura y calma en un solo diseño. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/compania-silenciosa.jpg"
+    },
+    {
+      "nombre": "Margarita",
+      "tipo": "remeras",
+      "descripcion": "Flor amarilla de pétalos grandes con lunares negros, efecto bordado texturizado. Un guiño alegre y noventoso. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/margarita.jpg"
+    },
+    {
+      "nombre": "Selva Adentro",
+      "tipo": "remeras",
+      "descripcion": "Elefante rodeado de hojas tropicales y flores en tonos vibrantes, con textura pictórica. Naturaleza y color en una sola estampa. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/selva-adentro.jpg"
+    },
+    {
+      "nombre": "Alas Argentinas",
+      "tipo": "remeras",
+      "descripcion": "Mariposa con alas en celeste y blanco, sol dorado en el centro, rodeada de destellos. Identidad nacional con un toque mágico. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/alas-argentinas.jpg"
+    },
+    {
+      "nombre": "Tigre en Flor",
+      "tipo": "remeras",
+      "descripcion": "Tigre en técnica acuarela con corona de flores y salpicaduras de color. Fuerza y delicadeza en equilibrio. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/tigre-en-flor.jpg"
+    },
+    {
+      "nombre": "Modo Verano",
+      "tipo": "buzos",
+      "descripcion": "Estampa en la espalda de un oso relajado con anteojos de sol, tomando jugo entre durazneros y un colibrí. Diseño veraniego y con onda. Confeccionado en algodón de alta calidad.",
+      "foto": "/assets/uploads/modo-verano.jpg"
+    },
+    {
+      "nombre": "Mirada Selvática",
+      "tipo": "remeras",
+      "descripcion": "Retrato de jaguar en paleta neón (turquesa, magenta, naranja) entre hojas tropicales. Un diseño audaz y de alto impacto visual. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/mirada-selvatica.jpg"
+    },
+    {
+      "nombre": "Volar Alto",
+      "tipo": "remeras",
+      "descripcion": "Colibrí minimalista en tonos tierra rodeado de hojas, con la frase \"Volar alto\". Un mensaje de libertad en formato delicado. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/volar-alta.jpg"
+    },
+    {
+      "nombre": "Mariposa de Trazo",
+      "tipo": "remeras",
+      "descripcion": "Mariposa dibujada en una sola línea continua, minimalista y elegante. Simpleza que dice mucho. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/mariposa-de-trazo.jpg"
+    },
+    {
+      "nombre": "Amor que Vuela",
+      "tipo": "remeras",
+      "descripcion": "Pajarito de línea fina sosteniendo un globo con forma de corazón, con la palabra \"amor\" bordada en la manga. Ternura minimalista. Confeccionada en algodón de alta calidad.",
+      "foto": "/assets/uploads/amor-que-vuela.jpg"
+    },
+    {
+      "nombre": "Guardián de Acero",
+      "tipo": "buzos",
+      "descripcion": "Estampa de un robot gigante estilo anime clásico, con armadura plateada y detalles en rojo intenso sobre fondo de tormenta eléctrica. Para quienes crecieron soñando con pilotear un mecha. Confeccionado en algodón de alta calidad.",
+      "foto": "/assets/uploads/guardian-de-acero.jpg"
     }
   ]
 }
