@@ -23,6 +23,12 @@
       "tipo": "buzos",
       "descripcion": "Ilustración ,delineado ",
       "foto": "/assets/uploads/buzo-3.jpg"
+    },
+    {
+      "foto": "/assets/uploads/whatsapp-image-2026-09-13-at-20.48.29.jpeg",
+      "descripcion": "Remera negra de flor en el centro con forma de corazón",
+      "tipo": "remeras",
+      "nombre": "Flor de Corazon"
     }
   ]
 }
