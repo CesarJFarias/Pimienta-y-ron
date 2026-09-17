@@ -35,7 +35,7 @@ A button labeled "Instagram" **MUST** appear directly below the "Redes sociales"
 
 ### Requirement: Wholesale note
 
-The static text "Para ventas al por mayor contactarse por Whatsapp" **MUST** appear below the Instagram button and **MUST NOT** be clickable.
+The static text "Ventas mayorista, minorista, eventos y empresas. Contanos tu idea acá" **MUST** appear below the Instagram button and **MUST NOT** be clickable.
 
 #### Scenario: Note is static
 

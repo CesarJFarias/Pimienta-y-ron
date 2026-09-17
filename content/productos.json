@@ -95,6 +95,114 @@
       "tipo": "buzos",
       "descripcion": "Estampa de un robot gigante estilo anime clásico, con armadura plateada y detalles en rojo intenso sobre fondo de tormenta eléctrica. Para quienes crecieron soñando con pilotear un mecha. Confeccionado en algodón de alta calidad.",
       "foto": "/assets/uploads/guardian-de-acero.jpg"
+    },
+    {
+      "nombre": "Osita Floreada",
+      "tipo": "tazas",
+      "descripcion": "Tierna taza con un osito de peluche vestido con capucha floral en tonos rosados, sobre fondo claro con hojas y corazones pastel. Ideal para regalos tiernos o el desayuno de todos los días.",
+      "foto": "/assets/uploads/taza-osita-floreada.jpg"
+    },
+    {
+      "nombre": "Beso al Viento",
+      "tipo": "tazas",
+      "descripcion": "Ilustración de una nena con vestido rosa soplando un beso, rodeada de corazones y flores en trazo delicado. Perfecta para regalos románticos o cumpleaños infantiles.",
+      "foto": "/assets/uploads/taza-beso-al-viento.jpg"
+    },
+    {
+      "nombre": "Paseo de Primavera",
+      "tipo": "tazas",
+      "descripcion": "Silueta estilizada de una niña junto a una rosa roja, en trazo fino tipo acuarela. Diseño minimalista y elegante.",
+      "foto": "/assets/uploads/taza-paseo-de-primavera.jpg"
+    },
+    {
+      "nombre": "Furia sobre Ruedas",
+      "tipo": "tazas",
+      "descripcion": "Auto deportivo rojo con efecto grunge urbano en blanco y negro. Para los fanáticos de los autos con actitud.",
+      "foto": "/assets/uploads/taza-furia-sobre-ruedas.jpg"
+    },
+    {
+      "nombre": "Tejido Arácnido",
+      "tipo": "tazas",
+      "descripcion": "Composición abstracta inspirada en el hombre araña, con trazos pictóricos en rojo, azul y negro. Estilo urbano/cómic.",
+      "foto": "/assets/uploads/taza-tejido-aracnido.jpg"
+    },
+    {
+      "nombre": "Corazones de Trazo",
+      "tipo": "tazas",
+      "descripcion": "Patrón de corazones dibujados a mano en tonos verdes, rosas y negros, con hojas y detalles botánicos. Estética minimalista y cálida.",
+      "foto": "/assets/uploads/taza-corazones-de-trazo.jpg"
+    },
+    {
+      "nombre": "Vive, Ríe, Ama",
+      "tipo": "tazas",
+      "descripcion": "Frase inspiradora enmarcada en flores tropicales rosadas. Un mensaje positivo para arrancar el día.",
+      "foto": "/assets/uploads/taza-vive-rie-ama.jpg"
+    },
+    {
+      "nombre": "Verso Nocturno",
+      "tipo": "tazas",
+      "descripcion": "Fondo azul profundo con un corazón trazado a mano y espacio para el nombre que elijas. Ideal para regalos personalizados.",
+      "foto": "/assets/uploads/taza-nombre-en-la-noche-personalizable.jpg"
+    },
+    {
+      "nombre": "Rapunzel",
+      "tipo": "tazas",
+      "descripcion": "La princesa Rapunzel bajando la escalinata del castillo con su cabello dorado, tal como en la película Enredados. Para fans de los clásicos de princesas.",
+      "foto": "/assets/uploads/taza-princesa-de-cuento.jpg"
+    },
+    {
+      "nombre": "El Mejor Jefe del Mundo",
+      "tipo": "tazas",
+      "descripcion": "Frase 'World's Best Boss' sobre fondo de tulipanes amarillos. Para regalar en el día del jefe o como reconocimiento laboral.",
+      "foto": "/assets/uploads/taza-el-mejor-jefe-del-mundo.jpg"
+    },
+    {
+      "nombre": "Siempre Leproso",
+      "tipo": "tazas",
+      "descripcion": "El escudo de Independiente Rivadavia de Mendoza para los hinchas del club, con todo el orgullo de ser leproso de corazón.",
+      "foto": "/assets/uploads/taza-escudo-azul-y-negro.jpg"
+    },
+    {
+      "nombre": "Capitán del Mundo",
+      "tipo": "tazas",
+      "descripcion": "Retrato artístico con la camiseta de la selección argentina, estilo ilustración urbana con efecto pincelada. Para los fanáticos del fútbol argentino.",
+      "foto": "/assets/uploads/taza-capitan-del-mundo.jpg"
+    },
+    {
+      "nombre": "Disciplina de Campeón",
+      "tipo": "tazas",
+      "descripcion": "Homenaje a Lionel Messi con su monograma coronado y las palabras que marcaron su carrera: Disciplina, Enfoque, Determinación y Éxito. Ideal para quienes buscan inspiración deportiva.",
+      "foto": "/assets/uploads/taza-disciplina-y-exito.jpg"
+    },
+    {
+      "nombre": "Mirada Felina",
+      "tipo": "tazas",
+      "descripcion": "Rostro de felino estilizado con detalles ornamentales en azul y dorado sobre fondo oscuro. Diseño artístico y llamativo.",
+      "foto": "/assets/uploads/taza-mirada-felina.jpg"
+    },
+    {
+      "nombre": "Acorde de Madera",
+      "tipo": "tazas",
+      "descripcion": "Primer plano de una guitarra acústica con textura de madera y una nota musical. Para músicos y amantes de la guitarra.",
+      "foto": "/assets/uploads/taza-acorde-de-madera.jpg"
+    },
+    {
+      "nombre": "Pantera Rosa",
+      "tipo": "tazas",
+      "descripcion": "La icónica Pantera Rosa en su pose característica levantando el índice, con su estilo retro elegante y chic. Un clásico animado con mucho carácter.",
+      "foto": "/assets/uploads/taza-clasica-y-traviesa.jpg"
+    },
+    {
+      "nombre": "Grinch",
+      "tipo": "tazas",
+      "descripcion": "El icónico Grinch con su característica cara de pocos amigos: rostro verde y expresión de enojo, ideal para la temporada de fin de año con un toque de humor.",
+      "foto": "/assets/uploads/taza-cara-de-pocos-amigos.jpg"
+    },
+    {
+      "nombre": "Corazones Animal Print",
+      "tipo": "tazas",
+      "descripcion": "Combinación de corazones rojos, flores y estampado animal en un diseño alegre y femenino.",
+      "foto": "/assets/uploads/taza-corazones-animal-print.jpg"
     }
   ]
 }

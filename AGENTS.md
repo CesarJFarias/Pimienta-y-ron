@@ -164,3 +164,11 @@ Priorizar refactorización sobre reescritura.
 No modificar funcionalidades que no formen parte del objetivo solicitado.
 
 Antes de realizar cambios estructurales importantes, inspeccionar el repositorio y comprender las dependencias existentes.
+
+## Branch `lab`
+
+La rama `lab` es la única rama de experimentación del proyecto (contenido con carrito, precios, redesign). Reglas obligatorias:
+
+- **Nunca pushear `lab` a `origin`** (los pushes a esa rama gastaría créditos de Netlify por los builds de ramas).
+- **Siempre commitear en `lab` antes de hacer `git switch main`** (evita arrastrar cambios sin commitear a producción).
+- `main` es la rama de producción: solo recibir cambios aprobados y con push único.

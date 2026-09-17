@@ -8,14 +8,14 @@ Define catalog content changes: the new "Tazas" category, new products sourced f
 
 ### Requirement: Tazas category added
 
-`content/categorias.json` **MUST** include a category with id `tazas`, etiqueta `Tazas` and `activa: false`.
+`content/categorias.json` **MUST** include a category with id `tazas`, etiqueta `Tazas` and `activa: true`.
 
-#### Scenario: Filter shows próximamente
+#### Scenario: Filter is active
 
 - GIVEN the catalog page loads
 - WHEN filters render
-- THEN a disabled button reads "Tazas · próximamente"
-- AND clicking it has no effect
+- THEN an active button reads "Tazas"
+- AND clicking it shows the products of that category
 
 #### Scenario: Admin selects category
 
